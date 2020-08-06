@@ -58,6 +58,11 @@ class HomeController extends Controller
         return json_encode($type);
     }
 
+    public function getName($name) {
+        $name = DB::table('user')->join('dept', 'user.dept_id', '=', 'dept.id')->where('user.name', 'like', '%'.$name.'%')->select('user.*', 'dept.name as dept_name')->get();
+        return json_encode($name);
+    }
+
     public function permit( Request $request ) {
         $type = strip_tags($request->input('type'));
         $user_id = strip_tags($request->input('name'));

@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                                 <div class="form-group m-form__group">
-                                    <input class="form-control m-input" type="text" placeholder="Department" name="dept" required>
+                                    <input class="form-control m-input" type="text" placeholder="Department" name="dept" disabled>
                                 </div>
                                 <div class="form-group m-form__group">
                                     <input class="form-control m-input" type="text" name="dnh" id="dnh" required placeholder="Date & Hour">
