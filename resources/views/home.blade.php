@@ -53,12 +53,28 @@
                             <form class="m-login__form m-form" action="{{ route('permit') }}" method="POST">
                                 @csrf
                                 <div class="form-group m-form__group">
+                                    <select class="form-control" name="dept" id="dept">
+                                        <option value="" disabled selected>DEPARTMENT</option>
+                                    </select>
+                                </div>
+                                <div class="form-group m-form__group">
+                                    <select class="form-control" name="subdiv" id="subdiv">
+                                        <option value="" disabled selected>SUB-DIVISI</option>
+                                    </select>
+                                </div>
+                                <div class="form-group m-form__group">
+                                    <select class="form-control" name="unit" id="unit">
+                                        <option value="" disabled selected>UNIT</option>
+                                    </select>
+                                </div>
+                                <div class="form-group m-form__group">
                                     <select class="form-control" name="type" id="type">
                                         <option value="" disabled selected>TYPE</option>
                                     </select>
                                 </div>
                                 <div class="form-group m-form__group">
                                     <input class="form-control m-input" type="text" placeholder="Name" name="name" required>
+                                    <input class="form-control m-input" type="hidden" name="id">
                                     <div class="name-dropdown">
                                         <div class="lds-facebook hide"><div></div><div></div><div></div></div>
                                         <ul style="list-style-type: none; padding-left: 0px; text-align: left; display: none">
@@ -82,9 +98,6 @@
                                             </li>
                                         </ul>
                                     </div>
-                                </div>
-                                <div class="form-group m-form__group">
-                                    <input class="form-control m-input" type="text" placeholder="Department" name="dept" disabled>
                                 </div>
                                 <div class="form-group m-form__group">
                                     <input class="form-control m-input" type="text" name="dnh" id="dnh" required placeholder="Date & Hour">

@@ -65,8 +65,9 @@ class HomeController extends Controller
 
     public function permit( Request $request ) {
         $type = strip_tags($request->input('type'));
-        $user_id = strip_tags($request->input('name'));
-        $date = strip_tags($request->input('dnh'));
+        $user_id = strip_tags($request->input('id'));
+        $name = strip_tags($request->input('name'));
+        $date = date("Y-m-d H:i:s",strtotime(strip_tags($request->input('dnh'))));
         $details = strip_tags($request->input('details'));
         $currDate = date('Y-m-d H:i:s' , strtotime('now'));
 
@@ -81,10 +82,35 @@ class HomeController extends Controller
                                          'status' => 0,
                                          'created_at' => $currDate,
                                         ] );
+            if ($insert) {
+                // SEND EMAIL
+                if ($user->kadept != null) {
+                    $kadept = DB::table('user')->where('id',$user->kadept)->first();
+                    $kadept_email = $kadept->email;
+
+                    $category = DB::table('category')->where('id',$user->category_id)->first();
+                    $category_name = $category->type;
+                    $this.sendPermitEmail($kadept_email, $category_name, $name);
+                }
+
+                return view('home');
+            }
         }
     }
 
-    public function sendRegisterEmail ($to,$code,$name) {
+    public function process_permit($permit, $isApprove) {
+        if ($isApprove == 1) {
+            $affected = DB::table('permit')
+              ->where('id', $permit)
+              ->update(['status' => 1]);
+        } else {
+            $affected = DB::table('permit')
+              ->where('id', $permit)
+              ->update(['status' => 2]);
+        }
+    }
+
+    public function sendPermitEmail ($to,$code,$name) {
         $url = url('/');
         $subject = 'Your ASSEMBLE - NextGen Leaders Conference 2020 e-Ticket';
         $message = '<html>

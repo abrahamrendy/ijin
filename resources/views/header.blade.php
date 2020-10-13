@@ -39,6 +39,7 @@
     
     <!-- <link href="../../../assets/demo/default/base/style.bundle.css" rel="stylesheet" type="text/css" /> -->
     <link href="{{asset('css/default/base/style.bundle.css')}}" rel="stylesheet" type="text/css" />
+
     <!-- <link href="{{asset('css/components.css')}}" rel="stylesheet" type="text/css" /> -->
 
     <!--end::Base Styles -->

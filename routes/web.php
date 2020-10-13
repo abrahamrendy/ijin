@@ -20,3 +20,5 @@ Route::get('/', function () {
 Route::post('/permit', 'HomeController@permit')->name('permit');
 Route::get('/get_type', 'HomeController@getType');
 Route::get('/get_name/{name}', 'HomeController@getName');
+Route::get('/process/{permit}/{isApprove}', 'HomeController@process_permit');
+

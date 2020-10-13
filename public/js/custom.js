@@ -1,5 +1,9 @@
 $(document).ready(function(){
-	$('#dnh').datetimepicker();
+    $('#dnh').datetimepicker({
+                sideBySide: true,
+                minDate: new Date()
+            });
+
 
 	// LOAD TYPE
 	$.ajax(
@@ -62,7 +66,6 @@ $(document).ready(function(){
                             elem += '<a href="javascript:;">';
                             elem += '<div class="name-dropdown-content" data-id = "'+item.id+'" data-name="'+item.name+'" data-dept_name="'+item.dept_name+'">';
                             elem += item.name;
-                            elem += ' (' + item.dept_name + ')';
                             elem += '</div></a></div></li>';
                         });
                         $('.name-dropdown ul').append(elem);
@@ -81,12 +84,34 @@ $(document).ready(function(){
         }
     }
 
-    $(document).on('click', '.name-dropdown .mt-list-item', function(){
-        var tempName = $(this).find('.name-dropdown-content').data('name');
-        var tempDept = $(this).find('.name-dropdown-content').data('dept_name');
-        console.log(tempDept);
-        $('input[name="name"]').val(tempName);
-        $('input[name="dept"]').val(tempDept);
-        $('.name-dropdown ul').slideUp();
+
+    // DROPDOWN TYPE CLICK
+    $("#type").change(function() {
+        // jQuery
+        var selectedVal = $(this).find(':selected').val();
+        var selectedText = $(this).find(':selected').text();
+
+        console.log(selectedVal);
+
+        if (selectedVal == 1) {
+            $('#dnh').data("DateTimePicker").destroy();
+            $('#dnh').datetimepicker({
+                sideBySide: true,
+                format: 'L',
+                maxDate: new Date()
+            });
+        } else if (selectedVal == 3) {
+            $('#dnh').data("DateTimePicker").destroy();
+            $('#dnh').datetimepicker({
+                sideBySide: true,
+                format: 'LT'
+            });
+        } else {
+            $('#dnh').data("DateTimePicker").destroy();
+            $('#dnh').datetimepicker({
+                sideBySide: true,
+                minDate: new Date()
+            });
+        }
     });
 });

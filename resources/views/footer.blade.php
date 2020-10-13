@@ -73,12 +73,20 @@
         <!-- begin::Quick Nav -->
 
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+        <script type="text/javascript" src="{{asset('bower_components/moment/min/moment.min.js')}}"></script>
+        <script type="text/javascript" src="{{asset('bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js')}}"></script>
+
+        <link rel="stylesheet" href="{{asset('bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css')}}" />
+
         <!--begin::Base Scripts -->
-        <script src="{{asset('css/vendors/base/vendors.bundle.js')}}" type="text/javascript"></script>
-        <script src="{{asset('css/default/base/scripts.bundle.js')}}" type="text/javascript"></script>
+        <!-- <script src="{{asset('css/vendors/base/vendors.bundle.js')}}" type="text/javascript"></script> -->
+        <!-- <script src="{{asset('css/default/base/scripts.bundle.js')}}" type="text/javascript"></script> -->
         <!--end::Base Scripts -->
         <!--begin::Page Snippets -->
-        <script src="{{asset('app/js/dashboard.js')}}" type="text/javascript"></script>
+        <!-- <script src="{{asset('app/js/dashboard.js')}}" type="text/javascript"></script> -->
         <script src="{{asset('js/custom.js')}}" type="text/javascript"></script>
         <!--end::Page Snippets -->
     </body>
